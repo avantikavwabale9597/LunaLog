@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mood</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="index.html" class="back-btn">← Back</a>
+
+    <p class="subtitle">
+      Reflect on your feelings and track your emotional journey 🌿
+    </p>
+
+    <h2>How do you feel today?</h2>
+
+    <div class="emojis">
+      <span onclick="saveMood('happy')">😊</span>
+      <span onclick="saveMood('sad')">😢</span>
+      <span onclick="saveMood('tired')">😴</span>
+      <span onclick="saveMood('angry')">😡</span>
+    </div>
+
+    <textarea id="moodNote" placeholder="Write about your day...."></textarea>
+
+    <br />
+
+    <button onclick="saveMood()">Save Mood</button>
+
+    <p id="todayMood"></p>
+    <p id="moodMessage"></p>
+
+    <hr />
+
+    <h3>📅 Mood Calendar</h3>
+
+    <div class="calendar">
+      <div class="calendar-header">
+        <button onclick="prevMonth()">⬅</button>
+        <h4 id="monthYear"></h4>
+        <button onclick="nextMoth()">➡</button>
+      </div>
+
+      <div class="calendar-days">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+      </div>
+    </div>
+
+    <hr />
+
+    <h3>📜 Recent Moods</h3>
+    <div id="moodHistory"></div>
+
+    <script src="mood.js"></script>
+
+    <script>
+      showTodayMood();
+      loadMoodHistory();
+      moodMessage();
+      renderCalendar();
+
+      document.getElementById("datePicker").valueAsDate = new Date();
+    </script>
+  </body>
+</html>
