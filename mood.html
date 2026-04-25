@@ -15,10 +15,10 @@
     <h2>How do you feel today?</h2>
 
     <div class="emojis">
-      <span onclick="saveMood('happy')">😊</span>
-      <span onclick="saveMood('sad')">😢</span>
-      <span onclick="saveMood('tired')">😴</span>
-      <span onclick="saveMood('angry')">😡</span>
+      <span onclick="selectMood('happy', this)">😊</span>
+      <span onclick="selectMood('sad', this)">😢</span>
+      <span onclick="selectMood('tired', this)">😴</span>
+      <span onclick="selectMood('angry', this)">😡</span>
     </div>
 
     <textarea id="moodNote" placeholder="Write about your day...."></textarea>
@@ -31,14 +31,13 @@
     <p id="moodMessage"></p>
 
     <hr />
-
     <h3>📅 Mood Calendar</h3>
 
     <div class="calendar">
       <div class="calendar-header">
         <button onclick="prevMonth()">⬅</button>
         <h4 id="monthYear"></h4>
-        <button onclick="nextMoth()">➡</button>
+        <button onclick="nextMonth()">➡</button>
       </div>
 
       <div class="calendar-days">
@@ -50,6 +49,8 @@
         <div>Fri</div>
         <div>Sat</div>
       </div>
+
+      <div id="calendarDates" class="calendar-dates"></div>
     </div>
 
     <hr />
@@ -64,8 +65,6 @@
       loadMoodHistory();
       moodMessage();
       renderCalendar();
-
-      document.getElementById("datePicker").valueAsDate = new Date();
     </script>
   </body>
 </html>
