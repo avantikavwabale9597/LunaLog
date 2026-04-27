@@ -79,6 +79,50 @@ function renderInsights() {
       },
     },
   });
+
+  let scoreMap = {
+    happy: 2,
+    tired: 0,
+    sad: -1,
+    angry: -2,
+  };
+
+  let totalScore = 0;
+  data.forEach((d) => {
+    totalScore += scoreMap[d.mood] || 0;
+  });
+
+  let avgScore = data.length ? (totalScore / data.length).toFixed(2) : 0;
+
+  document.getElementById("moodScore").innerText =
+    "Mood Score: " +
+    avgScore +
+    (avgScore > 0 ? "😊" : avgScore < 0 ? " 💙" : " 😐");
+
+  let last5 = data.slice(-5);
+  let prev5 = data.slice(-10, -5);
+
+  function calcAvg(arr) {
+    if (arr.length === 0) return 0;
+    return (
+      arr.reduce((sum, d) => sum + (scoreMap[d.mood] || 0), 0) / arr.length
+    );
+  }
+
+  let lastAvg = calcAvg(last5);
+  let prevAvg = calcAvg(prev5);
+
+  let trendText = "";
+
+  if (lastAvg > prevAvg) {
+    trendText = "Your mood is improving!";
+  } else if (lastAvg < prevAvg) {
+    trendText = "Your mood seems lower lately..";
+  } else {
+    trendText = "Your mood is stable";
+  }
+
+  document.getElementById("moodTrend").innerText = trendText;
 }
 
 window.onload = function () {

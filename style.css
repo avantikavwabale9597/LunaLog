@@ -255,6 +255,60 @@ hr {
 }
 .chart-box {
   width: 850px;
-  height: 500px;
+  height: 380px;
   margin: 20px auto;
+}
+.insights-container {
+  position: relative;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.trend-box {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.insights-row {
+  display: flex;
+  gap: 10px;
+}
+.insights-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  font-weight: 600;
+  transition: 0.2s;
+}
+.insights-card:hover {
+  transform: translateY(-4px);
+}
+
+.streak-global {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: white;
+  padding: 14px 20px;
+  border-radius: 25px;
+  font-size: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  font-weight: 600;
+  z-index: 1000;
+}
+#moodScore {
+  color: #15803d;
+  font-size: 16px;
+}
+#mostMood {
+  color: #166534;
+  font-size: 16px;
 }
