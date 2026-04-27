@@ -13,7 +13,7 @@
     </p>
 
     <h2>How do you feel today?</h2>
-
+    <h3 id="selectedDateText"></h3>
     <div class="emojis">
       <span onclick="selectMood('happy', this)">😊</span>
       <span onclick="selectMood('sad', this)">😢</span>
@@ -58,7 +58,18 @@
     <h3>📜 Recent Moods</h3>
     <div id="moodHistory"></div>
 
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">×</span>
+        <h4 id="selected-date">Selected Day</h4>
+        <p id="detailDate"></p>
+        <p id="detailMood"></p>
+        <p id="detailNote"></p>
+      </div>
+    </div>
+
     <script src="mood.js"></script>
+    <script src="script.js"></script>
 
     <script>
       showTodayMood();

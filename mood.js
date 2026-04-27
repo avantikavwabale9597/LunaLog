@@ -1,5 +1,6 @@
 let selectedMood = "";
 let currentDate = new Date();
+let selectedDate = new Date();
 
 function selectMood(mood, el) {
   selectedMood = mood;
@@ -20,8 +21,8 @@ function saveMood() {
   let note = document.getElementById("moodNote").value;
 
   let data = JSON.parse(localStorage.getItem("moodData")) || [];
-  let today = new Date().toLocaleDateString();
-
+  let today = selectedDate.toLocaleDateString();
+  data = data.filter((d) => d.date !== today);
   data.push({
     date: today,
     mood: selectedMood,
@@ -123,7 +124,7 @@ function renderCalendar() {
   }
 
   let moodData = JSON.parse(localStorage.getItem("moodData")) || [];
-
+  let todayStr = new Date().toLocaleDateString();
   for (let day = 1; day <= totalDays; day++) {
     let dateStr = new Date(year, month, day).toLocaleDateString();
 
@@ -132,25 +133,26 @@ function renderCalendar() {
     let moodClass = entry ? entry.mood : "";
     let emoji = entry ? getEmoji(entry.mood) : "";
 
+    let isSelected =
+      selectedDate.toLocaleDateString() === dateStr ? "selected-date" : "";
+
+    let isToday = todayStr === dateStr ? "today-date" : "";
+
     calendar.innerHTML += `
-      <div class="${moodClass}" onclick="showNote('${dateStr}')">
-        ${day}<br>${emoji}
-      </div>
-    `;
+    <div class="${moodClass} ${isSelected} ${isToday}" onclick="showNote('${dateStr}')">
+      ${day}<br>${emoji}
+    </div>
+  `;
   }
 }
 
 function showNote(date) {
-  let data = JSON.parse(localStorage.getItem("moodData")) || [];
-  let entry = data.find((d) => d.date === date);
+  selectedDate = new Date(date);
 
-  if (entry) {
-    alert(
-      date + "\nMood: " + entry.mood + "\nNote: " + (entry.note || "No note"),
-    );
-  } else {
-    alert("No data for this date");
-  }
+  document.getElementById("selectedDateText").innerText = "Selected: " + date;
+
+  renderCalendar();
+  showDayDetails(date);
 }
 
 function getEmoji(mood) {
@@ -172,6 +174,29 @@ function prevMonth() {
 function nextMonth() {
   currentDate.setMonth(currentDate.getMonth() + 1);
   renderCalendar();
+}
+function showDayDetails(date) {
+  let data = JSON.parse(localStorage.getItem("moodData")) || [];
+  let entry = data.find((d) => d.date === date);
+
+  document.getElementById("detailDate").innerText = date;
+
+  if (entry) {
+    document.getElementById("detailMood").innerText =
+      "Mood: " + entry.mood + " " + getEmoji(entry.mood);
+
+    document.getElementById("detailNote").innerText = entry.note
+      ? "Note: " + entry.note
+      : "No note";
+  } else {
+    document.getElementById("detailMood").innerText = "No mood saved";
+    document.getElementById("detailNote").innerText = "";
+  }
+  document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
 }
 
 window.onload = function () {
