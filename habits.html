@@ -15,12 +15,34 @@
     <div class="habit-container">
       <div class="add-habit">
         <input type="text" id="habitInput" placeholder="Enter new habit...." />
+        <input type="number" id="daysInput" placeholder="Days (e.g. 7)" />
+        <select id="categoryInput">
+          <option value="Health">Health</option>
+          <option value="Study">Study</option>
+          <option value="Fitness">Fitness</option>
+          <option value="Personal">Personal</option>
+        </select>
         <button onclick="addHabit()">Add</button>
       </div>
 
+      <h3 id="progressText"></h3>
+
+      <div class="progress-bar">
+        <div id="progressFill"></div>
+      </div>
+
+      <p id="smartMessage"></p>
+      <p id="weeklyStats"></p>
+
       <div id="habitList"></div>
+
+      <div class="chart-row">
+        <canvas id="habitDonut"></canvas>
+        <div id="chartLegend" class="custom-legend"></div>
+      </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="habits.js"></script>
   </body>
 </html>

@@ -9,6 +9,9 @@
     <h1>🌙 LunaLog</h1>
 
     <div class="streak">🔥 Streak: <span id="streakCount">0</span> days</div>
+    <div class="best-streak">
+      🏆 Best: <span id="bestStreakCount">0</span> days
+    </div>
 
     <div class="container">
       <a href="mood.html" class="card">Mood Tracker</a>
@@ -19,7 +22,10 @@
 
     <script src="script.js"></script>
     <script>
+      updateStreak();
+
       document.getElementById("streakCount").innerText = getStreak();
+      document.getElementById("bestStreakCount").innerText = getBestStreak();
     </script>
   </body>
 </html>

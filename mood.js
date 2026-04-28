@@ -41,35 +41,6 @@ function saveMood() {
   alert("Mood Saved!");
 }
 
-function updateStreak() {
-  let today = new Date().toLocaleDateString();
-
-  let streak = JSON.parse(localStorage.getItem("streak")) || {
-    lastDate: null,
-    count: 0,
-  };
-
-  if (streak.lastDate === today) return;
-
-  let yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
-
-  if (streak.lastDate === yesterday.toLocaleDateString()) {
-    streak.count++;
-  } else {
-    streak.count = 1;
-  }
-
-  streak.lastDate = today;
-
-  localStorage.setItem("streak", JSON.stringify(streak));
-}
-
-function getStreak() {
-  let s = JSON.parse(localStorage.getItem("streak")) || { count: 0 };
-  return s.count;
-}
-
 function showTodayMood() {
   let data = JSON.parse(localStorage.getItem("moodData")) || [];
   let today = new Date().toLocaleDateString();
