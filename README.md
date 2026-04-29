@@ -5,8 +5,6 @@
 LunaLog is a space to track your daily life, how you feel daily and are you even improving or not.
 Instead of using multiple apps you will get mood tracker, sleep tracker, habit tracker and last but not least Daily journal in one place\
 
----
-
 There are already a lot of habit trackers and journaling apps out there, but most of them are either:
 
 1. too complicated
@@ -14,16 +12,12 @@ There are already a lot of habit trackers and journaling apps out there, but mos
 
 This project focuses on being simple, fast, and actually useful daily.
 
----
-
 ## Tech Stack
 
 - HTML5
 - CSS3
 - Javascript(Vanilla)
 - LocalStorage
-
----
 
 ## How to Use
 
@@ -47,8 +41,6 @@ This project focuses on being simple, fast, and actually useful daily.
 
 5. Switch theme
    - Toggle dark mode anytime
-
----
 
 ## Screenshots
 
@@ -78,8 +70,6 @@ This project focuses on being simple, fast, and actually useful daily.
 7. Light Mode
    ![Light](assets/light.png)
 
----
-
 ## Notes
 
 1. All data is stored in your browser using LocalStorage
@@ -87,7 +77,5 @@ This project focuses on being simple, fast, and actually useful daily.
 3. No login required
 
 ## All emojis are taken from emojipedia.org
-
----
 
 ## MADE BY AVA
