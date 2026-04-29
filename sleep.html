@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sleep Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <a href="index.html" class="back-btn">← Back</a>
+
+    <h2>Sleep Tracker</h2>
+    <p class="subtitle">Track your sleep for better health</p>
+
+    <div class="sleep-container glass">
+      <div class="input-group">
+        <label>Sleep Time</label>
+        <input type="time" class="sleep-input" id="sleepTime" />
+      </div>
+
+      <div class="input-group">
+        <label>Wake Time</label>
+        <input type="time" class="sleep-input" id="wakeTime" />
+      </div>
+
+      <button onclick="saveSleep()">Save Sleep</button>
+
+      <div class="goal-box">
+        <input
+          type="number"
+          id="sleepGoal"
+          placeholder="Target hours(e.g. 8)"
+        />
+        <button onclick="saveGoal()">Set Goal</button>
+        <div class="goal-progress">
+          <div id="goalBar"></div>
+        </div>
+        <p id="goalProgress"></p>
+      </div>
+      <h3 id="sleepResult"></h3>
+    </div>
+
+    <p id="weeklyAvg"></p>
+    <div class="chart-box">
+      <canvas id="sleepChart"></canvas>
+    </div>
+
+    <div class="sleep-history glass">
+      <h3>Recent Sleep</h3>
+      <div id="sleepHistory"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="sleep.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+      loadTheme();
+    </script>
+  </body>
+</html>

@@ -441,3 +441,243 @@ select {
   backdrop-filter: blur(6px);
   font-weight: 500;
 }
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 420px;
+}
+.sleep-container button {
+  background: #22c55e;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.sleep-input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  font-size: 14px;
+  color: #065f46;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.sleep-input:focus {
+  box-shadow: 0 0 0 2px #22c55e;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.sleep-input::-webkit-calendar-picker-indicator {
+  opacity: 0.6;
+  cursor: pointer;
+  filter: invert(35%) sepia(60%) saturate(400%) hue-rotate(90deg);
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+.sleep-history {
+  max-width: 420px;
+  margin: 10px auto;
+}
+
+.history-card {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 10px;
+}
+.goal-box {
+  margin: 15px 0;
+  text-align: center;
+}
+.goal-box input {
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  margin-right: 5px;
+}
+.goal-progress {
+  width: 100%;
+  height: 10px;
+  background: rgba(209, 206, 206, 0.349);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+#goalBar {
+  height: 100%;
+  width: 0%;
+  background: #22c55e;
+  transition: width 0.2s ease;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 15px;
+  font-size: 14px;
+  color: #065f46;
+  opacity: 0.8;
+}
+.dashboard {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 20px;
+  flex-wrap: wrap;
+}
+
+.dash-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 15px;
+  margin-top: 50px;
+  border-radius: 14px;
+  width: 120px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.chart-title {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #065f46;
+  font-weight: 600;
+}
+.theme-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #d1fae5;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+.theme-btn img {
+  width: 50px;
+  height: 50px;
+  transition:
+    transform 0.4s ease,
+    opacity 0.3s ease;
+}
+body.dark {
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: #e5e7eb;
+}
+
+body.dark .streak {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark .card {
+  background: rgba(255, 255, 255, 0.05);
+  color: #e5e7eb;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.dark .card:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body.dark input,
+body.dark textarea,
+body.dark select {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e5e7eb;
+}
+
+body.dark .back-btn {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e5e7eb;
+}
+
+body.dark #datePicker {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e5e7eb;
+}
+
+body.dark textarea {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e5e7eb;
+}
+
+body.dark button {
+  background: linear-gradient(45deg, #4f46e5, #6366f1);
+  color: white;
+}
+
+body.dark hr {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body.dark .calendar {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark .calendar-header button {
+  background: #4f46e5;
+}
+
+body.dark .calendar-dates div {
+  background: rgba(255, 255, 255, 0.04);
+  color: #e5e7eb;
+}
+
+body.dark .calendar-dates div:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body.dark .selected-date {
+  border: 3px solid #6366f1;
+}
+
+body.dark .popup {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+body.dark .popup-content {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+body.dark .insights-card {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark .streak-global {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+}
+
+body.dark .habit-card {
+  background: rgba(255, 255, 255, 0.05);
+  color: #e5e7eb;
+}
+
+body.dark .habit-checkbox {
+  accent-color: #6366f1;
+}
+
+body.dark .progress-bar {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body.dark #progressFill {
+  background: #6366f1;
+}

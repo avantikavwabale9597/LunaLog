@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <button id="themeToggle" class="theme-btn" onclick="toggleTheme()">
+      <img id="themeIcon" src="assets/moon.png" alt="theme" />
+    </button>
     <h1>🌙 LunaLog</h1>
 
     <div class="streak">🔥 Streak: <span id="streakCount">0</span> days</div>
@@ -20,12 +23,41 @@
       <a href="insights.html" class="card">Insights</a>
     </div>
 
+    <div class="dashboard">
+      <div class="dash-card">
+        <h4>Mood</h4>
+        <p id="homeMood"></p>
+      </div>
+
+      <div class="dash-card">
+        <h4>Sleep</h4>
+        <p id="homeSleep"></p>
+      </div>
+
+      <div class="dash-card">
+        <h4>Habits</h4>
+        <p id="homeHabits"></p>
+      </div>
+    </div>
+
+    <div class="chart-box small-chart">
+      <h3 class="chart-title">Sleep Chart</h3>
+      <canvas id="miniSleepChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
     <script>
       updateStreak();
 
       document.getElementById("streakCount").innerText = getStreak();
       document.getElementById("bestStreakCount").innerText = getBestStreak();
+
+      loadHomeData();
+      renderMiniChart();
+      loadTheme();
     </script>
+
+    <footer class="footer">Designed by AVA 🌿</footer>
   </body>
 </html>
