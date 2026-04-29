@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Daily Journal</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="index.html" class="back-btn">← Back</a>
+
+    <h2>Daily Journal</h2>
+    <p class="subtitle">Write your thoughts and reflect 🌿</p>
+
+    <div class="glass journal-box">
+      <input type="date" id="journalDate" class="sleep-input" />
+
+      <textarea
+        id="journalText"
+        placeholder="Write your thoughts here...."
+      ></textarea>
+
+      <button onclick="saveJournal()">Save Entry</button>
+    </div>
+
+    <h3>Recent Entries</h3>
+    <div id="journalHistory" class="journal-history"></div>
+
+    <script src="journal.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
