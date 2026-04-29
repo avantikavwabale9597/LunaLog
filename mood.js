@@ -170,6 +170,44 @@ function closePopup() {
   document.getElementById("popup").style.display = "none";
 }
 
+function enableEditNote() {
+  let noteEl = document.getElementById("detailNote");
+  let input = document.getElementById("editNoteInput");
+  let btn = document.getElementById("saveNoteBtn");
+
+  if (!noteEl || !input || !btn) return;
+
+  let noteText = noteEl.innerText.includes("Note:")
+    ? noteEl.innerText.replace("Note: ", "")
+    : "";
+
+  input.style.display = "block";
+  btn.style.display = "inline-block";
+
+  input.value = noteText;
+}
+
+function saveEditedNote() {
+  let newNote = document.getElementById("editNoteInput").value;
+  let date = document.getElementById("detailDate").innerText;
+
+  let data = JSON.parse(localStorage.getItem("moodData")) || [];
+
+  data = data.map((d) => {
+    if (d.date === date) {
+      return { ...d, note: newNote };
+    }
+    return d;
+  });
+
+  localStorage.setItem("moodData", JSON.stringify(data));
+
+  document.getElementById("editNoteInput").style.display = "none";
+  document.getElementById("saveNoteBtn").style.display = "none";
+
+  showDayDetails(date);
+}
+
 window.onload = function () {
   showTodayMood();
   loadMoodHistory();

@@ -64,7 +64,24 @@
         <h4 id="selected-date">Selected Day</h4>
         <p id="detailDate"></p>
         <p id="detailMood"></p>
-        <p id="detailNote"></p>
+        <div class="note-row">
+          <p id="detailNote"></p>
+
+          <img
+            src="assets/edit.png"
+            class="edit-icon"
+            onclick="enableEditNote()"
+          />
+        </div>
+
+        <textarea id="editNoteInput" style="display: none"></textarea>
+        <button
+          id="saveNoteBtn"
+          style="display: none"
+          onclick="saveEditedNote()"
+        >
+          Save
+        </button>
       </div>
     </div>
 

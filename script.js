@@ -135,6 +135,28 @@ function renderMiniChart() {
   });
 }
 
+function checkWarnings() {
+  let today = new Date().toLocaleDateString();
+
+  let moodData = JSON.parse(localStorage.getItem("moodData")) || [];
+  let sleepData = JSON.parse(localStorage.getItem("sleepData")) || [];
+
+  let warning = "";
+
+  let moodToday = moodData.find((d) => d.date == today);
+  if (!moodToday) {
+    warning = "⚠️ You haven't logged your mood today";
+  }
+
+  let last2 = sleepData.slice(-2);
+  let poorSleep = last2.every((d) => parseFloat(d.duration) < 5);
+
+  if (poorSleep && last2.length === 2) {
+    warning = "⚠️ You slept less than 5 hrs for 2 days";
+  }
+
+  document.getElementById("smartWarning").innerText = warning;
+}
 function toggleTheme() {
   document.body.classList.toggle("dark");
 
